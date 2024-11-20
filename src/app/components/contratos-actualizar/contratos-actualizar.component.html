@@ -1,0 +1,52 @@
+<div class="crear-actualizar-container">
+    <div class="form-group">
+        <label for="id">ID:</label>
+        <input type="number" [(ngModel)]="id" id="id" name="id">
+    </div>
+
+    <div class="form-group">
+        <label for="identificador">Identificador:</label>
+        <input type="text" [(ngModel)]="contrato.identificador" id="identificador" name="identificador">
+    </div>
+
+    <div class="form-group">
+        <label for="valor">Valor:</label>
+        <input type="number" [(ngModel)]="contrato.valor" id="valor" name="valor">
+    </div>
+
+    <div class="form-group">
+        <label for="nombreContratante">Nombre Contratante:</label>
+        <input type="text" [(ngModel)]="contrato.nombreContratante" id="nombreContratante" name="nombreContratante">
+    </div>
+
+    <div class="form-group">
+        <label for="documentoContratante">Documento Contratante:</label>
+        <input type="text" [(ngModel)]="contrato.documentoContratante" id="documentoContratante" name="documentoContratante">
+    </div>
+
+    <div class="form-group">
+        <label for="nombreContratantista">Nombre Contratantista:</label>
+        <input type="text" [(ngModel)]="contrato.nombreContratantista" id="nombreContratantista" name="nombreContratantista">
+    </div>
+
+    <div class="form-group">
+        <label for="documentoContratantista">Documento Contratantista:</label>
+        <input type="text" [(ngModel)]="contrato.documentoContratantista" id="documentoContratantista" name="documentoContratantista">
+    </div>
+
+    <div class="form-group">
+        <label for="fechaInicial">Fecha Inicial:</label>
+        <input type="date" [(ngModel)]="contrato.fechaInicial" id="fechaInicial" name="fechaInicial">
+    </div>
+
+    <div class="form-group">
+        <label for="fechaFinal">Fecha Final:</label>
+        <input type="date" [(ngModel)]="contrato.fechaFinal" id="fechaFinal" name="fechaFinal">
+    </div>
+
+    <button (click)="submit()">Submit</button>
+
+    <div *ngIf="isLoading">Loading...</div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+    <div *ngIf="success" class="success">{{ success }}</div>
+</div>
