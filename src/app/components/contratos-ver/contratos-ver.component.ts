@@ -61,23 +61,4 @@ success: any;
       }
     });
   }
-
-  eliminarContrato() {
-    this.isLoading = true;
-    this.error = null;
-    this.success = null;
-    this.contratosService.deleteContrato(this.deleteId).subscribe({
-      next: () => {
-        this.success = 'Contrato eliminado exitosamente';
-        this.isLoading = false;
-        this.contrato = null;
-        this.contratos = this.contratos.filter(c => c.id !== this.deleteId);
-      },
-      error: (err) => {
-        this.error = 'Error al eliminar el contrato: ' + (err.error || err.message);
-        this.isLoading = false;
-        console.error(err);
-      }
-    });
-  }
 }

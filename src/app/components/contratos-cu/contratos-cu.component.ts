@@ -32,30 +32,16 @@ export class ContratosCuComponent {
     this.error = null;
     this.success = null;
 
-    if (this.id !== null) {
-      this.contratosService.updateContrato(this.id, this.contrato).subscribe({
-        next: () => {
-          this.success = 'Contrato updated successfully';
-          this.isLoading = false;
-        },
-        error: (err) => {
-          this.error = 'Failed to update contrato: ' + (err.error || err.message);
-          this.isLoading = false;
-          console.error(err);
-        }
-      });
-    } else {
-      this.contratosService.createContrato(this.contrato).subscribe({
-        next: () => {
-          this.success = 'Contrato created successfully';
-          this.isLoading = false;
-        },
-        error: (err) => {
-          this.error = 'Failed to create contrato: ' + (err.error || err.message);
-          this.isLoading = false;
-          console.error(err);
-        }
-      });
-    }
+    this.contratosService.createContrato(this.contrato).subscribe({
+      next: () => {
+        this.success = 'Contrato created successfully';
+        this.isLoading = false;
+      },
+      error: (err) => {
+        this.error = 'Failed to create contrato: ' + (err.error || err.message);
+        this.isLoading = false;
+        console.error(err);
+      }
+    });
   }
 }
