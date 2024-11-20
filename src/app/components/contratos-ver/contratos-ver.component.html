@@ -1,0 +1,63 @@
+<div class="contratos-container">
+    <div class="buttons">
+      <button (click)="obtenerTodos()">Obtener todos</button>
+    </div>
+  
+    <div class="form">
+      <label for="id">ID:</label>
+      <input type="number" [(ngModel)]="id" id="id" name="id">
+      <button (click)="obtenerPorId()">Obtener por id</button>
+    </div>
+
+    <div class="form">
+      <label for="deleteId">ID para eliminar:</label>
+      <input type="number" [(ngModel)]="deleteId" id="deleteId" name="deleteId">
+      <button (click)="eliminarContrato()">Eliminar</button>
+  </div>
+  
+    <div *ngIf="isLoading">Loading...</div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+    <div *ngIf="success" class="success">{{ success }}</div>
+  
+    <table *ngIf="!isLoading && contratos.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Identificador</th>
+          <th>Valor</th>
+          <th>Nombre Contratante</th>
+          <th>Documento Contratante</th>
+          <th>Nombre Contratantista</th>
+          <th>Documento Contratantista</th>
+          <th>Fecha Inicial</th>
+          <th>Fecha Final</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contrato of contratos">
+          <td>{{ contrato.id }}</td>
+          <td>{{ contrato.identificador }}</td>
+          <td>{{ contrato.valor }}</td>
+          <td>{{ contrato.nombreContratante }}</td>
+          <td>{{ contrato.documentoContratante }}</td>
+          <td>{{ contrato.nombreContratantista }}</td>
+          <td>{{ contrato.documentoContratantista }}</td>
+          <td>{{ contrato.fechaInicial | date }}</td>
+          <td>{{ contrato.fechaFinal | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!isLoading && contrato">
+      <h3>Contrato Details</h3>
+      <p>ID: {{ contrato.id }}</p>
+      <p>Identificador: {{ contrato.identificador }}</p>
+      <p>Valor: {{ contrato.valor }}</p>
+      <p>Nombre Contratante: {{ contrato.nombreContratante }}</p>
+      <p>Documento Contratante: {{ contrato.documentoContratante }}</p>
+      <p>Nombre Contratantista: {{ contrato.nombreContratantista }}</p>
+      <p>Documento Contratantista: {{ contrato.documentoContratantista }}</p>
+      <p>Fecha Inicial: {{ contrato.fechaInicial | date }}</p>
+      <p>Fecha Final: {{ contrato.fechaFinal | date }}</p>
+    </div>
+  </div>
